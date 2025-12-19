@@ -1,17 +1,20 @@
 import { Outlet } from "react-router";
 import Sidebar from "../common/Sidebar";
 import Headers from "../common/Header";
+import Footer from "../common/Footer";
 
 function RootLayout() {
   return (
     <>
-      {" "}
-      <nav className="w-fit rounded bg-white p-2 shadow">
+      <nav>
         <Sidebar />
       </nav>
-      <main className="flex-1 rounded bg-white p-2 shadow">
+      <main className="flex flex-1 flex-col justify-between rounded bg-white p-1 shadow sm:p-2">
         <Headers />
-        <Outlet />
+        <div className="p-2">
+          <Outlet />
+        </div>
+        <Footer />
       </main>
     </>
   );

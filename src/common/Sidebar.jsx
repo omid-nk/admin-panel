@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router";
 import UserCard from "../components/modules/UserCard";
 import {
@@ -10,53 +11,88 @@ import {
 } from "react-icons/hi2";
 
 function Sidebar() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState();
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setIsSidebarOpen(false);
+    } else {
+      setIsSidebarOpen(true);
+    }
+  }, []);
+
   return (
-    <div>
-      <div className="flex items-center justify-between gap-6">
-        <UserCard />
-        <HiOutlineChevronLeft className="h-9 w-6 cursor-pointer rounded bg-blue-100 p-0.5 text-blue-500" />
+    <div className="w-fit rounded bg-white p-1.5 shadow transition-all sm:p-2">
+      <div
+        className={`${isSidebarOpen ? "flex-row gap-2 sm:gap-6" : "flex-col-reverse gap-2 sm:gap-4"} flex items-center justify-between`}
+      >
+        <UserCard isSidebarOpen={isSidebarOpen} />
+        <HiOutlineChevronLeft
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className={` ${isSidebarOpen ? "h-9 w-6 p-0.5" : "h-9 w-9 rotate-180 p-1.5"} cursor-pointer rounded bg-blue-100 text-blue-500 transition-all`}
+        />
       </div>
 
-      <ul className="my-4 flex flex-col gap-1">
+      <ul className="my-2 flex flex-col gap-1 sm:my-4">
         <li>
           <NavLink
             to={"/"}
-            className="flex cursor-pointer items-center gap-2 rounded px-2 py-1 transition-all hover:bg-blue-50"
+            className={({ isActive }) =>
+              `flex cursor-pointer items-center gap-2 rounded transition-all ${isSidebarOpen ? "px-2 py-1" : "justify-center p-2"} ${isActive ? "bg-blue-600 text-blue-50" : "hover:bg-blue-50"} `
+            }
           >
-            <HiOutlineSquares2X2 className="h-5 w-5" />
-            Dashboard
+            <HiOutlineSquares2X2
+              className={`${isSidebarOpen ? "h-5 w-5" : "h-6 w-6"}`}
+            />
+            <p className={`${isSidebarOpen ? "block" : "hidden"}`}>Dashboard</p>
           </NavLink>
         </li>
         <li>
           <NavLink
             to={"/products"}
-            className="flex cursor-pointer items-center gap-2 rounded px-2 py-1 transition-all hover:bg-blue-50"
+            className={({ isActive }) =>
+              `flex cursor-pointer items-center gap-2 rounded transition-all ${isSidebarOpen ? "px-2 py-1" : "justify-center p-2"} ${isActive ? "bg-blue-600 text-blue-50" : "hover:bg-blue-50"} `
+            }
           >
-            <HiOutlineShoppingBag className="h-5 w-5" />
-            Products
+            <HiOutlineShoppingBag
+              className={`${isSidebarOpen ? "h-5 w-5" : "h-6 w-6"}`}
+            />
+            <p className={`${isSidebarOpen ? "block" : "hidden"}`}>Products</p>
           </NavLink>
         </li>
         <li>
           <NavLink
             to={"/users"}
-            className="flex cursor-pointer items-center gap-2 rounded px-2 py-1 transition-all hover:bg-blue-50"
+            className={({ isActive }) =>
+              `flex cursor-pointer items-center gap-2 rounded transition-all ${isSidebarOpen ? "px-2 py-1" : "justify-center p-2"} ${isActive ? "bg-blue-600 text-blue-50" : "hover:bg-blue-50"} `
+            }
           >
-            <HiOutlineUsers className="h-5 w-5" />
-            Users
+            <HiOutlineUsers
+              className={`${isSidebarOpen ? "h-5 w-5" : "h-6 w-6"}`}
+            />
+            <p className={`${isSidebarOpen ? "block" : "hidden"}`}>Users</p>
           </NavLink>
         </li>
         <li>
           <NavLink
             to={"/setting"}
-            className="flex cursor-pointer items-center gap-2 rounded px-2 py-1 transition-all hover:bg-blue-50"
+            className={({ isActive }) =>
+              `flex cursor-pointer items-center gap-2 rounded transition-all ${isSidebarOpen ? "px-2 py-1" : "justify-center p-2"} ${isActive ? "bg-blue-600 text-blue-50" : "hover:bg-blue-50"} `
+            }
           >
-            <HiOutlineCog6Tooth className="h-5 w-5" />
-            Setting
+            <HiOutlineCog6Tooth
+              className={`${isSidebarOpen ? "h-5 w-5" : "h-6 w-6"}`}
+            />
+            <p className={`${isSidebarOpen ? "block" : "hidden"}`}>Setting</p>
           </NavLink>
         </li>
-        <li className="flex cursor-pointer items-center gap-2 px-2 py-1 transition-all hover:text-red-600">
-          <HiOutlinePower className="h-5 w-5" />
-          Log out
+        <li
+          className={`${isSidebarOpen ? "px-2 py-1" : "justify-center p-2"} flex cursor-pointer items-center gap-2 rounded transition-all hover:text-red-500`}
+        >
+          <HiOutlinePower
+            className={`${isSidebarOpen ? "h-5 w-5" : "h-6 w-6"}`}
+          />
+          <p className={`${isSidebarOpen ? "block" : "hidden"}`}>Log Out</p>
         </li>
       </ul>
     </div>
