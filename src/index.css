@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("public/fonts/OpenSans-Regular.woff");
+}
+
+@theme {
+  --font-primary: "Open Sans", sans-serif, Arial;
+}
+
+.recharts-wrapper *:focus {
+  outline: none !important;
+}

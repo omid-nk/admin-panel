@@ -11,7 +11,7 @@ function RootLayout() {
       </nav>
       <main className="flex flex-1 flex-col justify-between rounded bg-white p-1 shadow sm:p-2">
         <Headers />
-        <div className="p-2">
+        <div className="p-1">
           <Outlet />
         </div>
         <Footer />
