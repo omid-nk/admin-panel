@@ -1,7 +1,7 @@
 import { HiOutlineUserGroup } from "react-icons/hi2";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
-import AreaChartSection from "../components/modules/AreaChartSection";
+import AreaChartSection from "../components/AreaChartSection";
 
 function Dashboard() {
   return (

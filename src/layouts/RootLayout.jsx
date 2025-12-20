@@ -9,9 +9,9 @@ function RootLayout() {
       <nav>
         <Sidebar />
       </nav>
-      <main className="flex flex-1 flex-col justify-between rounded bg-white p-1 shadow sm:p-2">
-        <Headers />
-        <div className="p-1">
+      <main className="flex flex-1 flex-col justify-between rounded bg-white p-1 shadow transition-all sm:p-2">
+        <div>
+          <Headers />
           <Outlet />
         </div>
         <Footer />

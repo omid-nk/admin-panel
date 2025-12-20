@@ -7,7 +7,7 @@ import {
   Tooltip,
   Area,
 } from "recharts";
-import saleData from "../../data/saleData";
+import saleData from "../data/saleData";
 
 function AreaChartSection() {
   return (
