@@ -2,6 +2,7 @@ import { HiOutlineUserGroup } from "react-icons/hi2";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import AreaChartSection from "../components/AreaChartSection";
+import productsData from "../data/productsData";
 
 function Dashboard() {
   return (
@@ -18,7 +19,9 @@ function Dashboard() {
           <HiOutlineShoppingBag className="h-12 w-12 text-purple-500" />
           <div className="flex w-full items-center justify-between gap-2 px-2">
             <p className="text-md cursor-default">Products</p>
-            <p className="cursor-default text-lg font-bold">110</p>
+            <p className="cursor-default text-lg font-bold">
+              {productsData.length}
+            </p>
           </div>
         </div>
         <div className="flex flex-1 items-center gap-2 rounded bg-orange-50 p-2 md:block">

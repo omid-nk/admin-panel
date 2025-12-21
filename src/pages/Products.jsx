@@ -1,6 +1,8 @@
 import { HiOutlineChevronDown } from "react-icons/hi2";
 import AddNewProductModule from "../components/AddNewProductModule";
 import { useState } from "react";
+import ProductModule from "../components/modules/ProductModule";
+import productsData from "../data/productsData";
 
 function Products() {
   const [isAddNewProductOpen, setIsAddNewProductOpen] = useState(false);
@@ -19,7 +21,11 @@ function Products() {
             <HiOutlineChevronDown className="h-4 w-4" />
           </button>
         </header>
-        <div></div>
+        <div className="flex flex-col divide-y divide-gray-200">
+          {productsData.map((item) => (
+            <ProductModule {...item} />
+          ))}
+        </div>
       </div>
       {isAddNewProductOpen && (
         <AddNewProductModule setIsAddNewProductOpen={setIsAddNewProductOpen} />
