@@ -11,8 +11,8 @@ function SearchBar() {
       <input
         onFocus={() => setIsSearchbarFocus(true)}
         onBlur={() => setIsSearchbarFocus(false)}
-        className="w-44 border-0 p-1 text-sm text-gray-600 outline-0 transition-all placeholder:text-gray-400 focus:w-64 dark:text-gray-100 dark:placeholder:text-gray-400"
-        placeholder="Search anything here..."
+        className="w-32 border-0 p-1 text-sm text-gray-600 outline-0 transition-all placeholder:text-gray-400 md:w-48 md:focus:w-64 dark:text-gray-100 dark:placeholder:text-gray-400"
+        placeholder="Search..."
         type="text"
       />
       <HiOutlineMagnifyingGlass

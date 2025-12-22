@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "./routes/root";
-import Dashboard from "./routes/home/dashboard";
+import Dashboard from "./routes/home/dashboard/dashboard";
 import Analytics from "./routes/home/analytics";
 import EcommerceOverview from "./routes/ecommerce/overview";
 import Products from "./routes/ecommerce/products";
@@ -10,6 +10,7 @@ import Users from "./routes/pages/users";
 import Account from "./routes/pages/account";
 import Notification from "./routes/pages/notification";
 import Chat from "./routes/pages/chat";
+import NotFound from "./routes/notFound";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
           { path: "notification", element: <Notification /> },
           { path: "chat", element: <Chat /> },
         ],
+      },
+      {
+        path: "/*",
+        element: <NotFound />,
       },
     ],
   },

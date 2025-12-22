@@ -7,7 +7,7 @@ function RootLayout() {
   const title = usePageTitle();
   return (
     <>
-      <aside className="glass-border rounded-lg bg-white/80 p-3 shadow-md dark:bg-gray-800/70">
+      <aside>
         <Sidebar />
       </aside>
       <main className="glass-border flex-1 rounded-lg bg-white/80 p-3 shadow-md dark:bg-gray-800/70">
