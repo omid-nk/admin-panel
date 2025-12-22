@@ -29,7 +29,9 @@ function MenuItems() {
             <div
               onClick={() => toggleMenu(item.id)}
               className={`flex cursor-pointer items-center justify-between gap-12 rounded-lg px-3 py-1.5 transition-all ${
-                openMenus[item.id] ? "bg-blue-200/60 text-blue-600" : ""
+                openMenus[item.id]
+                  ? "bg-blue-200/60 text-blue-600 dark:bg-blue-400/20 dark:text-gray-100"
+                  : ""
               }`}
             >
               <div className="flex items-center gap-2">
@@ -58,7 +60,9 @@ function MenuItems() {
                         end={child.end}
                         className={({ isActive }) =>
                           `px-4 text-sm transition-all ${
-                            isActive ? "text-blue-600" : "hover:text-blue-600"
+                            isActive
+                              ? "text-blue-600 dark:text-blue-400"
+                              : "hover:text-blue-600 dark:hover:text-blue-400"
                           }`
                         }
                       >
