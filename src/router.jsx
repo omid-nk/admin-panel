@@ -4,6 +4,7 @@ import Dashboard from "./routes/home/dashboard/dashboard";
 import Analytics from "./routes/home/analytics";
 import EcommerceOverview from "./routes/ecommerce/overview";
 import Products from "./routes/ecommerce/products/products";
+import NewProduct from "./routes/ecommerce/NewProduct";
 import Orders from "./routes/ecommerce/orders";
 import PagesOverview from "./routes/pages/overview";
 import Users from "./routes/pages/users";
@@ -24,6 +25,7 @@ const router = createHashRouter([
         children: [
           { index: true, element: <EcommerceOverview /> },
           { path: "products", element: <Products /> },
+          { path: "new-product", element: <NewProduct /> },
           { path: "orders", element: <Orders /> },
         ],
       },

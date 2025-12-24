@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useLocation } from "react-router";
 
 export default function usePageTitle() {
@@ -13,6 +14,7 @@ export default function usePageTitle() {
     "account",
     "notification",
     "chat",
+    "new-product",
   ];
 
   const getTitleFromPath = (path) => {
@@ -23,12 +25,17 @@ export default function usePageTitle() {
 
     if (!validTitles.includes(lastSegment)) return "Dashboard";
 
-    // تبدیل از kebab-case به Title Case
     return lastSegment
       .split("-")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   };
 
-  return getTitleFromPath(location.pathname);
+  const pageTitle = getTitleFromPath(location.pathname);
+
+  useEffect(() => {
+    document.title = pageTitle;
+  }, [pageTitle]);
+
+  return pageTitle;
 }
