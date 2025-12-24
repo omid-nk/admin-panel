@@ -1,7 +1,5 @@
-import React from "react";
-
 function EcommerceOverview() {
-  return <div>overview</div>;
+  return <div className="my-32 flex justify-center">Coming Soon</div>;
 }
 
 export default EcommerceOverview;

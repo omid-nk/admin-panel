@@ -8,7 +8,7 @@ function Sidebar() {
     <>
       <HamburgerButton />
 
-      <div className="glass-border hidden rounded-lg bg-white/80 p-3 shadow-md sm:block dark:bg-gray-800/70">
+      <div className="hidden rounded-lg bg-white/80 p-3 shadow-md md:block dark:bg-gray-800/70">
         <UserCard />
         <MenuItems />
         <Accessibility />

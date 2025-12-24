@@ -1,9 +1,9 @@
-import userAvatar from "../../../assets/images/default-avatar.jpg";
+import userAvatar from "../../../assets/images/avatar-default.png";
 
 function UserCard() {
   return (
     <div className="mb-4 border-b border-gray-200 pb-4">
-      <div className="flex items-center gap-2">
+      <div className="flex flex-col items-start gap-2 lg:flex-row lg:items-center">
         <img className="h-14 w-14 rounded-lg" src={userAvatar} alt="" />
         <div>
           <p className="line-clamp-1 cursor-default text-sm font-bold">

@@ -28,7 +28,7 @@ function MenuItems() {
           <li key={item.id}>
             <div
               onClick={() => toggleMenu(item.id)}
-              className={`flex cursor-pointer items-center justify-between gap-12 rounded-lg px-3 py-1.5 transition-all ${
+              className={`flex cursor-pointer items-center justify-between gap-6 rounded-lg px-3 py-1.5 transition-all lg:gap-12 ${
                 openMenus[item.id]
                   ? "bg-blue-200/60 text-blue-600 dark:bg-blue-400/20 dark:text-gray-100"
                   : ""

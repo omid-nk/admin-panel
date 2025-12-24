@@ -1,9 +1,9 @@
-import { createBrowserRouter } from "react-router";
+import { createHashRouter } from "react-router";
 import RootLayout from "./routes/root";
 import Dashboard from "./routes/home/dashboard/dashboard";
 import Analytics from "./routes/home/analytics";
 import EcommerceOverview from "./routes/ecommerce/overview";
-import Products from "./routes/ecommerce/products";
+import Products from "./routes/ecommerce/products/products";
 import Orders from "./routes/ecommerce/orders";
 import PagesOverview from "./routes/pages/overview";
 import Users from "./routes/pages/users";
@@ -12,7 +12,7 @@ import Notification from "./routes/pages/notification";
 import Chat from "./routes/pages/chat";
 import NotFound from "./routes/notFound";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <RootLayout />,
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "/*",
+        path: "*",
         element: <NotFound />,
       },
     ],

@@ -6,7 +6,7 @@ function SearchBar() {
 
   return (
     <div
-      className={`flex items-center justify-between gap-1 rounded-full border border-gray-400 px-2 py-0.5 dark:border-gray-400/20 dark:bg-blue-400/20 dark:text-gray-100 ${isSearchbarFocus && "border-gray-600 shadow"}`}
+      className={`flex items-center justify-between gap-1 rounded-full border border-gray-200 px-2 py-0.5 dark:border-gray-400/20 dark:bg-blue-400/10 dark:text-gray-100 ${isSearchbarFocus && "border-gray-400"}`}
     >
       <input
         onFocus={() => setIsSearchbarFocus(true)}
