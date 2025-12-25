@@ -1,125 +1,123 @@
 import { useState } from "react";
+import useInput from "../../hooks/useInput";
 
 function NewProduct() {
   const [cover, setCover] = useState(null);
   const coverPreview = cover ? URL.createObjectURL(cover) : null;
 
+  const titleInput = useInput();
+  const urlInput = useInput();
+  const skuInput = useInput();
+  const priceInput = useInput();
+  const qtyInput = useInput();
+  const descriptionInput = useInput();
+
   return (
     <div className="mx-auto flex flex-col gap-4 p-2">
+      {/* title */}
       <div className="flex flex-col gap-1">
-        <label
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          htmlFor="title"
-        >
-          Title
+        <label htmlFor="product-title" className="text-sm">
+          Title:
         </label>
         <input
-          id="title"
+          {...titleInput}
+          id="product-title"
           placeholder="Enter product title"
-          className="rounded-lg border border-gray-200 bg-gray-50 p-3 text-sm text-gray-800 transition outline-none placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-400 dark:focus:ring-blue-400"
           type="text"
+          className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
         />
       </div>
 
+      {/* url */}
       <div className="flex flex-col gap-1">
-        <label
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          htmlFor="title"
-        >
-          Url
+        <label htmlFor="product-url" className="text-sm">
+          Url:
         </label>
         <input
-          id="title"
+          {...urlInput}
+          id="product-url"
           placeholder="Enter product url"
-          className="rounded-lg border border-gray-200 bg-gray-50 p-3 text-sm text-gray-800 transition outline-none placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-400 dark:focus:ring-blue-400"
           type="text"
+          className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
         />
       </div>
 
+      {/* cover */}
       <div className="flex flex-col gap-1">
-        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-          Product Cover
+        <label htmlFor="product-cover" className="text-sm">
+          Product Cover:
         </label>
-
-        <label className="relative flex h-40 cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-dashed border-gray-300 bg-gray-50 transition hover:border-blue-400 hover:bg-blue-50 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600">
+        <label className="flex h-40 cursor-pointer items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-50 hover:border-blue-400 hover:bg-blue-50 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600">
           <input
+            id="product-cover"
             type="file"
             accept="image/*"
             className="hidden"
             onChange={(e) => setCover(e.target.files[0])}
           />
-
           {coverPreview ? (
-            <img
-              src={coverPreview}
-              alt="Product fill preview"
-              className="h-full w-full object-contain"
-            />
+            <img src={coverPreview} className="h-full w-full object-contain" />
           ) : (
             <span className="text-sm text-gray-500 dark:text-gray-300">
-              Click to upload cover image
+              Click to Upload Cover Image
             </span>
           )}
         </label>
       </div>
 
+      {/* sku */}
       <div className="flex flex-col gap-1">
-        <label
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          htmlFor="title"
-        >
-          SKU
+        <label htmlFor="product-sku" className="text-sm">
+          SKU:
         </label>
         <input
-          id="title"
+          {...skuInput}
+          id="product-sku"
           placeholder="Enter product sku"
-          className="rounded-lg border border-gray-200 bg-gray-50 p-3 text-sm text-gray-800 transition outline-none placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-400 dark:focus:ring-blue-400"
           type="text"
+          className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
         />
       </div>
 
+      {/* price */}
       <div className="flex flex-col gap-1">
-        <label
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          htmlFor="price"
-        >
-          Price
+        <label htmlFor="product-price" className="text-sm">
+          Price:
         </label>
         <input
-          id="price"
+          {...priceInput}
+          id="product-price"
           placeholder="Enter product price"
-          className="rounded-lg border border-gray-200 bg-gray-50 p-3 text-sm text-gray-800 transition outline-none placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-400 dark:focus:ring-blue-400"
           type="number"
+          className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
         />
       </div>
 
+      {/* qty */}
       <div className="flex flex-col gap-1">
-        <label
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          htmlFor="price"
-        >
-          QTY
+        <label htmlFor="product-qty" className="text-sm">
+          Quantity:
         </label>
         <input
-          id="price"
-          placeholder="Enter product QTY"
-          className="rounded-lg border border-gray-200 bg-gray-50 p-3 text-sm text-gray-800 transition outline-none placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-400 dark:focus:ring-blue-400"
+          {...qtyInput}
+          id="product-qty"
+          placeholder="Enter product quantity"
           type="number"
+          className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
         />
       </div>
 
+      {/* Description */}
       <div className="flex flex-col gap-1">
-        <label
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-          htmlFor="description"
-        >
-          Description
+        <label htmlFor="product-description" className="text-sm">
+          Description:
         </label>
         <textarea
-          id="description"
+          {...descriptionInput}
+          id="product-description"
           placeholder="Enter product description"
           rows={4}
-          className="rounded-lg border border-gray-200 bg-gray-50 p-3 text-sm text-gray-800 transition outline-none placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-400 dark:focus:ring-blue-400"
+          className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
         />
       </div>
 
