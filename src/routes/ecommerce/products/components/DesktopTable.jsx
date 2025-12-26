@@ -14,13 +14,7 @@ function DesktopTable({ products }) {
               QTY
             </th>
             <th className="cursor-default px-2 py-3 text-left font-medium">
-              Sku
-            </th>
-            <th className="cursor-default px-2 py-3 text-left font-medium">
               Salary
-            </th>
-            <th className="cursor-default px-2 py-3 text-left font-medium">
-              Status
             </th>
           </tr>
         </thead>
@@ -33,26 +27,22 @@ function DesktopTable({ products }) {
             >
               <td className="flex cursor-default items-center gap-2 px-2 py-3 text-left">
                 <img
-                  className="hidden h-10 w-10 rounded-lg md:block"
-                  src={item.cover}
+                  className="hidden h-14 w-14 rounded-lg object-contain md:block"
+                  src={item.image}
                   alt=""
                 />
-                <p className="cursor-pointer hover:text-blue-600 hover:underline dark:hover:text-blue-400">
-                  {item.name}
+                <p className="line-clamp-2 cursor-pointer hover:text-blue-600 hover:underline dark:hover:text-blue-400">
+                  {item.title}
                 </p>
               </td>
-              <td className="cursor-default px-1 py-3 text-left">
+              <td className="cursor-default px-2 py-3 text-left">
                 {item.category}
               </td>
-              <td className="cursor-default px-1 py-3 text-left">
-                {item.quantity}
+              <td className="cursor-default px-2 py-3 text-left">
+                {item.rating.count}
               </td>
-              <td className="cursor-default px-1 py-3 text-left">{item.sku}</td>
-              <td className="cursor-default px-1 py-3 text-left">
+              <td className="cursor-default px-2 py-3 text-left">
                 {`$${item.price}`}
-              </td>
-              <td className="cursor-default px-1 py-3 text-left">
-                {item.status}
               </td>
             </tr>
           ))}

@@ -8,33 +8,25 @@ function MobileTable({ products }) {
         >
           <header className="flex items-center gap-3">
             <img
-              className="h-12 w-12 rounded-lg sm:h-16 sm:w-16"
-              src={item.cover}
+              className="h-12 w-12 rounded-lg object-contain sm:h-16 sm:w-16"
+              src={item.image}
               alt=""
             />
             <div>
-              <p className="font-medium">{item.name}</p>
+              <p className="font-medium">{item.title}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 {item.category}
               </p>
             </div>
           </header>
-          <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+          <div className="mt-3 grid grid-cols-2 gap-2 px-2 text-xs">
             <div className="flex gap-2">
               <span className="text-gray-400">QTY:</span>
-              <p className="font-medium">{item.quantity}</p>
-            </div>
-            <div className="flex gap-2">
-              <span className="text-gray-400">SKU:</span>
-              <p className="font-medium">{item.sku}</p>
+              <p className="font-medium">{item.rating.count}</p>
             </div>
             <div className="flex gap-2">
               <span className="text-gray-400">Price:</span>
               <p className="font-medium">${item.price}</p>
-            </div>
-            <div className="flex gap-2">
-              <span className="text-gray-400">Status:</span>
-              <p className="font-medium">{item.status}</p>
             </div>
           </div>
         </div>
