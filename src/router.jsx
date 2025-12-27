@@ -4,6 +4,7 @@ import Dashboard from "./routes/home/dashboard/dashboard";
 import Analytics from "./routes/home/analytics";
 import EcommerceOverview from "./routes/ecommerce/overview";
 import Products from "./routes/ecommerce/products/products";
+import DetailProduct from "./routes/ecommerce/DetailProduct";
 import NewProduct from "./routes/ecommerce/NewProduct";
 import Orders from "./routes/ecommerce/orders";
 import PagesOverview from "./routes/pages/overview";
@@ -13,10 +14,21 @@ import Notification from "./routes/pages/notification";
 import Chat from "./routes/pages/chat";
 import NotFound from "./routes/notFound";
 
+import LoginPage from "./routes/auth/loginPage";
+import ProtectedRoute from "./routes/auth/ProtectedRoute";
+
 const router = createHashRouter([
   {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
     path: "/",
-    element: <RootLayout />,
+    element: (
+      <ProtectedRoute>
+        <RootLayout />
+      </ProtectedRoute>
+    ),
     children: [
       { index: true, element: <Dashboard /> },
       { path: "analytics", element: <Analytics /> },
@@ -25,6 +37,7 @@ const router = createHashRouter([
         children: [
           { index: true, element: <EcommerceOverview /> },
           { path: "products", element: <Products /> },
+          { path: "products/:productId", element: <DetailProduct /> },
           { path: "new-product", element: <NewProduct /> },
           { path: "orders", element: <Orders /> },
         ],

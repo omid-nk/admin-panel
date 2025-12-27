@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function DesktopTable({ products }) {
   return (
     <div className="hidden lg:block">
@@ -32,7 +34,9 @@ function DesktopTable({ products }) {
                   alt=""
                 />
                 <p className="line-clamp-2 cursor-pointer hover:text-blue-600 hover:underline dark:hover:text-blue-400">
-                  {item.title}
+                  <Link to={`/e-commerce/products/${item.id}`}>
+                    {item.title}
+                  </Link>
                 </p>
               </td>
               <td className="cursor-default px-2 py-3 text-left">

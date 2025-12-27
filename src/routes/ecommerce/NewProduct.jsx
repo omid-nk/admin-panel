@@ -1,16 +1,37 @@
 import { useState } from "react";
 import useInput from "../../hooks/useInput";
+import { addProduct } from "../../api/products";
 
 function NewProduct() {
   const [cover, setCover] = useState(null);
   const coverPreview = cover ? URL.createObjectURL(cover) : null;
 
   const titleInput = useInput();
-  const urlInput = useInput();
-  const skuInput = useInput();
   const priceInput = useInput();
-  const qtyInput = useInput();
   const descriptionInput = useInput();
+
+  const addProductHandler = async () => {
+    const product = {
+      id: 0,
+      title: titleInput.value,
+      price: Number(priceInput.value),
+      description: descriptionInput.value,
+      category: "product",
+      image: coverPreview,
+    };
+    try {
+      const res = await addProduct(product);
+      console.log("API Response:", res.data);
+      alert("Product added successfully ✅");
+      titleInput.setValue("");
+      priceInput.setValue("");
+      descriptionInput.setValue("");
+      setCover(null);
+    } catch (error) {
+      console.error(error);
+      alert("Add product failed ❌");
+    }
+  };
 
   return (
     <div className="mx-auto flex flex-col gap-4 p-2">
@@ -23,20 +44,6 @@ function NewProduct() {
           {...titleInput}
           id="product-title"
           placeholder="Enter product title"
-          type="text"
-          className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
-        />
-      </div>
-
-      {/* url */}
-      <div className="flex flex-col gap-1">
-        <label htmlFor="product-url" className="text-sm">
-          Url:
-        </label>
-        <input
-          {...urlInput}
-          id="product-url"
-          placeholder="Enter product url"
           type="text"
           className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
         />
@@ -65,20 +72,6 @@ function NewProduct() {
         </label>
       </div>
 
-      {/* sku */}
-      <div className="flex flex-col gap-1">
-        <label htmlFor="product-sku" className="text-sm">
-          SKU:
-        </label>
-        <input
-          {...skuInput}
-          id="product-sku"
-          placeholder="Enter product sku"
-          type="text"
-          className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
-        />
-      </div>
-
       {/* price */}
       <div className="flex flex-col gap-1">
         <label htmlFor="product-price" className="text-sm">
@@ -88,20 +81,6 @@ function NewProduct() {
           {...priceInput}
           id="product-price"
           placeholder="Enter product price"
-          type="number"
-          className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
-        />
-      </div>
-
-      {/* qty */}
-      <div className="flex flex-col gap-1">
-        <label htmlFor="product-qty" className="text-sm">
-          Quantity:
-        </label>
-        <input
-          {...qtyInput}
-          id="product-qty"
-          placeholder="Enter product quantity"
           type="number"
           className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm ring-blue-600 transition-all outline-none placeholder:text-gray-400 focus:ring-1 dark:border-gray-600 dark:bg-gray-700"
         />
@@ -121,7 +100,10 @@ function NewProduct() {
         />
       </div>
 
-      <button className="mt-4 cursor-pointer rounded-lg bg-blue-600 px-4 py-2 font-medium text-white shadow transition hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
+      <button
+        onClick={addProductHandler}
+        className="mt-4 cursor-pointer rounded-lg bg-blue-600 px-4 py-2 font-medium text-white shadow transition hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+      >
         Add Product
       </button>
     </div>

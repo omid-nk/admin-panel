@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function MobileTable({ products }) {
   return (
     <div className="block lg:hidden">
@@ -13,7 +15,9 @@ function MobileTable({ products }) {
               alt=""
             />
             <div>
-              <p className="font-medium">{item.title}</p>
+              <p className="font-medium">
+                <Link to={`/e-commerce/products/${item.id}`}>{item.title}</Link>
+              </p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 {item.category}
               </p>

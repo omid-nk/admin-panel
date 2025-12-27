@@ -8,6 +8,7 @@ const useInput = (defaultValue) => {
   const inputProps = {
     value: state,
     onChange: handleChange,
+    setValue: setState,
   };
 
   return inputProps;
