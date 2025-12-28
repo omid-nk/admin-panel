@@ -1,5 +1,6 @@
 function BackGround() {
   return (
+    // bg pattern
     <div
       className="pointer-events-none absolute inset-0 -z-50"
       style={{
