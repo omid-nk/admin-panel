@@ -2,11 +2,13 @@ import Sidebar from "../features/sidebar/Sidebar";
 import Header from "../features/header/Header";
 import { Outlet } from "react-router";
 import usePageTitle from "../hooks/usePageTitle";
+import BackGround from "../features/BackGround";
 
 function RootLayout() {
   const title = usePageTitle();
   return (
     <div className="mx-auto flex max-w-7xl p-1 sm:gap-2 sm:p-2">
+      <BackGround />
       <aside>
         <Sidebar />
       </aside>
